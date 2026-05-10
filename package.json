@@ -1,16 +1,15 @@
 {
-  "name": "cypress-google-scholar",
+  "name": "projeto2503",
   "version": "1.0.0",
-  "description": "Automação Google Acadêmico com Cypress",
+  "main": "index.js",
   "scripts": {
-    "test": "cypress run",
-    "cy:open": "cypress open"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
+  "description": "",
+  "devDependencies": {
     "cypress": "^13.7.3"
   }
 }
