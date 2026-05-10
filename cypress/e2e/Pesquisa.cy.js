@@ -7,7 +7,7 @@ describe('Pesquisa no Google Acadêmico', () => {
 
     // Pesquisa o tema
     cy.get('input[name="q"]')
-      .type('Inteligência Artificial{enter}');
+      .type(' Inteligência Artificial{enter}');
 
     // Valida se os resultados foram exibidos
     cy.get('#gs_res_ccl_mid')
