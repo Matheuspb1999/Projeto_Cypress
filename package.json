@@ -1,0 +1,16 @@
+{
+  "name": "cypress-google-scholar",
+  "version": "1.0.0",
+  "description": "Automação Google Acadêmico com Cypress",
+  "scripts": {
+    "test": "cypress run",
+    "cy:open": "cypress open"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "cypress": "^13.7.3"
+  }
+}
