@@ -1,10 +1,11 @@
-# Disparo manual a partir de 1 clique
+# Disparo agendado
 # nome do nosso 'pipeline'
-name: 'Execução Manual'
+name: 'Execução Agendada'
 # regras de disparo (gatilhos/triggers)
 # gatilho de exec manual = workflow_dispatch
 on:
-  workflow_dispatch:
+  schedule:
+    - cron: '0 19 * * 3'
 # trabalhos/tarefas dentro do pipeline = jobs
 jobs:
   e2e-tests:
