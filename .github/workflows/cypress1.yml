@@ -15,16 +15,18 @@ jobs:
       # clone do projeto
       - uses: actions/checkout@v4
       # instalação do node
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4 
         with:
           node-version: latest
+          cache: 'yarn'
+        
       # instalação do Yarn
       - name: Instalando Yarn
         run: npm install -g yarn
 
       # instalação das dependências
       - name: Instalando dependências
-        run: yarn
+        run: yarn --frozen-lockfile
 
       # instalação do Cypress
       - name: Instalando Cypress
