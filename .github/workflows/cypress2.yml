@@ -1,59 +1,36 @@
-name: Execução Agendada
-
+# Disparo agendado
+# nome do nosso 'pipeline'
+name: 'Execução Agendada'
+# regras de disparo (gatilhos/triggers)
+# gatilho de exec manual = workflow_dispatch
 on:
   schedule:
-    # Executa toda quarta-feira às 19h UTC
     - cron: '0 19 * * 3'
-
-  # Permite execução manual também
-  workflow_dispatch:
-
+# trabalhos/tarefas dentro do pipeline = jobs
 jobs:
   e2e-tests:
-
+    #maquina que o job vai executar
     runs-on: ubuntu-latest
-
+    # passos do script de build
     steps:
-
-      # Clona o repositório
-      - name: Checkout do projeto
-        uses: actions/checkout@v4
-
-      # Configura Node.js
-      - name: Configurar Node.js
-        uses: actions/setup-node@v4
+      # clone do projeto
+      - uses: actions/checkout@v4
+      # instalação do node
+      - uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'yarn'
-
-      # Instala Yarn
-      - name: Instalar Yarn
+          node-version: latest
+      # instalação do Yarn
+      - name: Instalando Yarn
         run: npm install -g yarn
 
-      # Instala dependências
-      - name: Instalar dependências
-        run: yarn install --frozen-lockfile
+      # instalação das dependências
+      - name: Instalando dependências
+        run: yarn
 
-      # Instala Cypress
-      - name: Instalar Cypress
+      # instalação do Cypress
+      - name: Instalando Cypress
         run: npx cypress install
 
-      # Executa testes Cypress
-      - name: Executar testes E2E
+      # executar os testes e2e
+      - name: Executando Testes E2E
         run: npx cypress run
-
-      # Salva screenshots gerados
-      - name: Upload screenshots
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: screenshots-cypress
-          path: cypress/screenshots
-
-      # Salva vídeos dos testes
-      - name: Upload videos
-        uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: videos-cypress
-          path: cypress/videos
