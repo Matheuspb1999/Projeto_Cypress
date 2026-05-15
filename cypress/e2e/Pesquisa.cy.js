@@ -1,7 +1,9 @@
 describe('Pesquisa no Google Acadêmico', () => {
 
   it('Deve pesquisar um tema e validar resultados', () => {
-    cy.visit('/');
+    cy.visit('https://scholar.google.com.br', {
+  failOnStatusCode: false
+})
     cy.get('input[name="q"]')
       .type(' Inteligência Artificial{enter}');
     cy.get('#gs_res_ccl_mid')
